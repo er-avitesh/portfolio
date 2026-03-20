@@ -102,7 +102,7 @@ export default function Navigation() {
               onClick={() => scrollTo(item.href)}
               style={{
                 fontFamily: 'DM Mono, monospace',
-                fontSize: '0.65rem',
+                fontSize: '0.75rem',
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 padding: '6px 14px',
@@ -110,7 +110,7 @@ export default function Navigation() {
                 border: active === item.href.slice(1)
                   ? '1px solid rgba(0,212,255,0.4)'
                   : '1px solid transparent',
-                color: active === item.href.slice(1) ? '#00d4ff' : 'rgba(136,136,170,0.8)',
+                color: active === item.href.slice(1) ? '#00d4ff' : 'rgba(200,210,235,0.9)',
                 background: active === item.href.slice(1) ? 'rgba(0,212,255,0.05)' : 'transparent',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',

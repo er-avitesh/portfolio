@@ -1,21 +1,17 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-
-const ROLES = [
-  'Cloud Architect',
-  'AI Systems Leader',
-  'Principal Consultant',
-  'IEEE Senior Member',
-];
+import { basics } from '@/lib/resume';
 
 export default function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting] = useState(false);
 
+  const roles = basics.roles;
+
   useEffect(() => {
-    const current = ROLES[roleIndex];
+    const current = roles[roleIndex];
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!deleting && displayed.length < current.length) {
@@ -26,14 +22,17 @@ export default function HeroSection() {
       timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), 30);
     } else if (deleting && displayed.length === 0) {
       setDeleting(false);
-      setRoleIndex((i) => (i + 1) % ROLES.length);
+      setRoleIndex((i) => (i + 1) % roles.length);
     }
     return () => clearTimeout(timeout);
-  }, [displayed, deleting, roleIndex]);
+  }, [displayed, deleting, roleIndex, roles]);
 
   const scrollToExperience = () => {
     document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const [firstName, ...rest] = basics.name.split(' ');
+  const lastName = rest.join(' ');
 
   return (
     <section
@@ -58,7 +57,7 @@ export default function HeroSection() {
         style={{ marginBottom: '2rem' }}
       >
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00d4ff', display: 'inline-block' }} />
-        Concord, North Carolina · Open to Opportunities
+        {basics.location} · Open to Opportunities
       </motion.div>
 
       {/* Name */}
@@ -77,7 +76,7 @@ export default function HeroSection() {
           maxWidth: '900px',
         }}
       >
-        Avitesh{' '}
+        {firstName}{' '}
         <span
           style={{
             background: 'linear-gradient(135deg, #00d4ff 0%, #7b5ea7 100%)',
@@ -85,7 +84,7 @@ export default function HeroSection() {
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Kesharwani
+          {lastName}
         </span>
       </motion.h1>
 
@@ -134,7 +133,7 @@ export default function HeroSection() {
           fontWeight: 300,
         }}
       >
-        10+ years architecting enterprise-scale cloud solutions. Leading the <strong style={{ color: '#e8e8f0', fontWeight: 500 }}>TITAN Cloud & AI Enablement Program</strong> — transforming specialty insurance through RAG-based underwriting automation, AKS migrations, and predictive analytics.
+        {basics.heroSummary}
       </motion.p>
 
       {/* Tags */}
@@ -144,8 +143,8 @@ export default function HeroSection() {
         transition={{ delay: 0.6, duration: 0.6 }}
         style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', marginBottom: '3rem' }}
       >
-        {['Azure · AWS · GCP', 'RAG · LangChain · OpenAI', 'Kubernetes · Docker', 'IEEE Senior Member', 'Globee® Judge 2025', 'MS CS @ UNC Charlotte'].map(tag => (
-          <span key={tag} className="chip-purple" style={{
+        {basics.heroTags.map(tag => (
+          <span key={tag} style={{
             display: 'inline-block',
             padding: '5px 14px',
             borderRadius: '100px',
@@ -196,7 +195,7 @@ export default function HeroSection() {
           View Experience →
         </button>
         <a
-          href="mailto:itsavitesh@gmail.com"
+          href={`mailto:${basics.email}`}
           style={{
             padding: '14px 32px',
             borderRadius: '100px',

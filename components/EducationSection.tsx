@@ -1,34 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-
-const EDUCATION = [
-  {
-    institution: 'University of North Carolina at Charlotte',
-    degree: 'Master of Science — Computer Science',
-    dates: 'July 2024 – March 2026',
-    status: 'In Progress',
-    color: '#00d4ff',
-  },
-  {
-    institution: 'Lakshmi Narain College Of Technology',
-    degree: 'Bachelor of Engineering — Information Technology',
-    dates: '2009 – 2013',
-    status: 'Completed',
-    color: '#7b5ea7',
-  },
-  {
-    institution: 'JPV DAV Public School Katni',
-    degree: 'High School — Maths and Science',
-    dates: '2007 – 2009',
-    status: 'Completed',
-    color: '#7b5ea7',
-  },
-];
-
-const LANGS = [
-  { lang: 'English', level: 'Fluent' },
-  { lang: 'Hindi', level: 'Native' },
-];
+import { education, languages } from '@/lib/resume';
 
 export default function EducationSection() {
   return (
@@ -60,7 +32,7 @@ export default function EducationSection() {
         </motion.div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
-          {EDUCATION.map((edu, i) => (
+          {education.map((edu, i) => (
             <motion.div
               key={edu.institution}
               initial={{ opacity: 0, x: -20 }}
@@ -102,8 +74,8 @@ export default function EducationSection() {
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{
                   fontFamily: 'DM Mono, monospace',
-                  fontSize: '0.65rem',
-                  color: 'rgba(136,136,170,0.5)',
+                  fontSize: '0.75rem',
+                  color: 'rgba(165,178,208,0.9)',
                   marginBottom: '6px',
                 }}>
                   {edu.dates}
@@ -133,11 +105,11 @@ export default function EducationSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(136,136,170,0.5)', marginBottom: '16px' }}>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(200,210,235,0.9)', marginBottom: '16px' }}>
             Languages
           </p>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            {LANGS.map(l => (
+            {languages.map(l => (
               <div key={l.lang} style={{
                 padding: '14px 24px',
                 borderRadius: '12px',
@@ -149,7 +121,7 @@ export default function EducationSection() {
                 minWidth: '140px',
               }}>
                 <span style={{ fontSize: '0.95rem', fontWeight: 600, color: '#e8e8f0' }}>{l.lang}</span>
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', color: 'rgba(136,136,170,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{l.level}</span>
+                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'rgba(165,178,208,0.9)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{l.level}</span>
               </div>
             ))}
           </div>

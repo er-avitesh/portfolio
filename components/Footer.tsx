@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { basics } from '@/lib/resume';
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
       position: 'relative',
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
-        
+
         {/* Monogram */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,12 +25,12 @@ export default function Footer() {
             WebkitTextFillColor: 'transparent',
           }}
         >
-          AK
+          {basics.initials}
         </motion.div>
 
         {/* Contact row */}
         <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <a href="mailto:itsavitesh@gmail.com" style={{
+          <a href={`mailto:${basics.email}`} style={{
             fontFamily: 'DM Mono, monospace',
             fontSize: '0.72rem',
             color: 'rgba(136,136,170,0.7)',
@@ -40,10 +41,10 @@ export default function Footer() {
           onMouseEnter={e => (e.target as HTMLAnchorElement).style.color = '#00d4ff'}
           onMouseLeave={e => (e.target as HTMLAnchorElement).style.color = 'rgba(136,136,170,0.7)'}
           >
-            itsavitesh@gmail.com
+            {basics.email}
           </a>
           <span style={{ color: 'rgba(136,136,170,0.2)', fontFamily: 'DM Mono, monospace', fontSize: '0.7rem' }}>·</span>
-          <a href="tel:+14078207830" style={{
+          <a href={`tel:${basics.phone}`} style={{
             fontFamily: 'DM Mono, monospace',
             fontSize: '0.72rem',
             color: 'rgba(136,136,170,0.7)',
@@ -54,11 +55,11 @@ export default function Footer() {
           onMouseEnter={e => (e.target as HTMLAnchorElement).style.color = '#00d4ff'}
           onMouseLeave={e => (e.target as HTMLAnchorElement).style.color = 'rgba(136,136,170,0.7)'}
           >
-            +1 (407) 820-7830
+            {basics.phone}
           </a>
           <span style={{ color: 'rgba(136,136,170,0.2)', fontFamily: 'DM Mono, monospace', fontSize: '0.7rem' }}>·</span>
           <a
-            href="https://www.linkedin.com/in/itsavitesh"
+            href={basics.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -83,7 +84,7 @@ export default function Footer() {
           color: 'rgba(136,136,170,0.3)',
           textAlign: 'center',
         }}>
-          Concord, North Carolina · Available for opportunities
+          {basics.location} · Available for opportunities
         </p>
       </div>
     </footer>

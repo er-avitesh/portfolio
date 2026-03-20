@@ -1,32 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-
-const PUBS = [
-  {
-    title: 'The Economics of Corporate Meetings: Measuring Cost, Value, and Impact in Software Engineering',
-    subtitle: 'A Data-Driven Approach to Optimizing Meetings in the Software Industry Using Cloud, AI, and Productivity Analytics',
-    icon: '📊',
-    tags: ['Cloud', 'AI', 'Productivity Analytics'],
-  },
-  {
-    title: 'Enterprise-Scale Cloud Migration Factory Model',
-    subtitle: 'A Standardized and Value-Driven Approach for Large-Scale Applications',
-    icon: '☁️',
-    tags: ['Cloud Migration', 'Enterprise Architecture', 'DevOps'],
-  },
-  {
-    title: 'A Unified Generative AI Solution for Streamlined Employee Onboarding Processes',
-    subtitle: 'Leveraging generative AI to automate and enhance the employee onboarding lifecycle',
-    icon: '🤖',
-    tags: ['Generative AI', 'LLM', 'HR Tech'],
-  },
-];
-
-const CERTS = [
-  { title: 'Introduction to Responsible AI', org: 'Google / Coursera' },
-  { title: 'Blockchain Essentials BC0101EN', org: 'IBM' },
-  { title: 'SI Associate Quiz', org: 'Certification' },
-];
+import { publications, certifications } from '@/lib/resume';
 
 export default function PublicationsSection() {
   return (
@@ -59,7 +33,7 @@ export default function PublicationsSection() {
 
         {/* Publications */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '60px' }}>
-          {PUBS.map((pub, i) => (
+          {publications.map((pub, i) => (
             <motion.div
               key={pub.title}
               initial={{ opacity: 0, y: 20 }}
@@ -104,6 +78,11 @@ export default function PublicationsSection() {
                 <p style={{ fontSize: '0.82rem', color: 'rgba(136,136,170,0.7)', lineHeight: 1.6 }}>
                   {pub.subtitle}
                 </p>
+                {pub.doi && (
+                  <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', color: 'rgba(0,212,255,0.6)', marginTop: '8px', letterSpacing: '0.04em' }}>
+                    doi:{pub.doi}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
@@ -111,17 +90,17 @@ export default function PublicationsSection() {
 
         {/* Certifications */}
         <div>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(136,136,170,0.5)', marginBottom: '20px' }}>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(200,210,235,0.9)', marginBottom: '20px' }}>
             Certifications
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
-            {CERTS.map((cert, i) => (
+            {certifications.map((cert, i) => (
               <motion.div
                 key={cert.title}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
+                transition={{ delay: i * 0.05, duration: 0.5 }}
                 style={{
                   padding: '18px 22px',
                   borderRadius: '12px',

@@ -1,96 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const EXPERIENCE = [
-  {
-    company: 'Genpact',
-    role: 'Senior Principal Consultant',
-    dates: 'Nov 2024 – Present',
-    duration: '1 yr 5 mo',
-    location: 'Charlotte, NC',
-    color: '#00d4ff',
-    highlights: ['RAG-based risk scoring', 'AKS containerization', 'Azure OpenAI + LangChain'],
-    bullets: [
-      'Architected AI-driven underwriting automation featuring RAG-based risk scoring that aggregates municipal and county data (crime rates, flood zones, building codes) to provide predictive insights for underwriting decisions',
-      'Designed and integrated AI solutions using Azure OpenAI and LangChain for submission triage, quote workflow optimization, and predictive analytics — improving decision-making speed and accuracy',
-      'Led migration from IIS servers to Azure VMs and AKS containerization, managing multi-cloud infrastructure across Azure, AWS (Elastic Beanstalk, EC2, RDS, Lambda, S3), and GCP',
-      'Implemented comprehensive monitoring using Grafana and Prometheus with security enforcement through Wiz and Checkmarx scans',
-      'Drove DevOps practices using GitLab, Jenkins, uDeploy, and GitHub Copilot for accelerated development',
-      'Partnered with ML engineers to define technology stack and integration strategy, demonstrating ROI through improved quoting speed, risk accuracy, and operational efficiency',
-      'Governed Agile delivery using SAFe methodology with JIRA and Confluence for predictable quarterly releases',
-    ],
-  },
-  {
-    company: 'Capgemini',
-    role: 'Senior Manager',
-    dates: 'Sep 2024 – Nov 2024',
-    duration: '3 mo',
-    location: 'Charlotte, NC',
-    color: '#7b5ea7',
-    highlights: ['17 team members mentored', '10+ global teams', '2 migration accelerators'],
-    bullets: [
-      'Directed end-to-end migration of Java and Python applications to Pivotal Cloud Foundry, coordinating with 10+ global teams',
-      'Designed and implemented AWS-based solutions using S3, Lambda, ECS Fargate, SQS, SNS, and API Gateway for secure, scalable applications',
-      'Leveraged Terraform for Azure infrastructure automation and Harness for deployment orchestration',
-      'Initiated pilot migrations to Azure App Service utilizing Azure Cache, Key Vault, and Application Insights',
-      'Developed two migration accelerators that significantly boosted productivity and streamlined processes',
-      "Led 'Let's Grow Together' training campaign, delivering comprehensive PCF and Agile training to drive skill development",
-      'Mentored 17 team members on technical proficiency and career growth',
-      'Collaborated with networking teams to establish robust Public Infrastructure for applications',
-    ],
-  },
-  {
-    company: 'Capgemini',
-    role: 'Software Engineering Manager',
-    dates: 'Feb 2021 – Sep 2024',
-    duration: '3 yr 8 mo',
-    location: 'Charlotte, NC',
-    color: '#7b5ea7',
-    highlights: ['ColdFusion → Microservices', 'Python + Django + VueJS', 'CI/CD full pipeline'],
-    bullets: [
-      'Spearheaded strategic migration from Adobe ColdFusion legacy portal to modern microservices-based self-service application',
-      'Led conceptualization and design of comprehensive migration strategy from Adobe ColdFusion to modern architecture',
-      'Orchestrated domain design workshops to craft scalable microservices architecture',
-      'Developed robust backend services using Python and Django with responsive VueJS frontend',
-      'Implemented middleware service integrating JIRA Service Desk API for automated ticket creation and tracking',
-      'Managed complete CI/CD pipeline onboarding using GitHub, Jenkins, Urban Code Deploy, Sonar, and Pivotal Cloud Foundry',
-      'Delivered modernized, user-friendly self-service application meeting both technical and business objectives',
-    ],
-  },
-  {
-    company: 'Capgemini',
-    role: 'Senior Consultant',
-    dates: 'Oct 2018 – Feb 2021',
-    duration: '2 yr 5 mo',
-    location: 'Charlotte, NC',
-    color: '#7b5ea7',
-    highlights: ['12 training sessions', '6 agile workshops', 'Transformation Hub'],
-    bullets: [
-      'Established Transformation Hub providing centralized platform for cloud-native migration across multiple teams and technology stacks',
-      'Collaborated with multiple application teams through pair programming for cloud-native migration using 15 Factor methodologies',
-      'Championed Test-Driven Development (TDD) practices ensuring application robustness',
-      'Led migration of applications to Spring Boot, Java, and Gradle with complete CI/CD integration',
-      'Conducted 12 intensive 80-hour classroom training sessions on Cloud Native Applications and DevOps',
-      "Facilitated 6 'Roadmap to Enterprise Agile' workshops for Senior Management across four states",
-      'Designed and hosted multiple knowledge-sharing sessions and problem-solving workshops',
-    ],
-  },
-  {
-    company: 'Syntel',
-    role: 'Consultant → Associate Consultant → Software Engineer',
-    dates: 'Nov 2013 – Oct 2018',
-    duration: '5 yr',
-    location: 'Orlando, FL & Pune, India',
-    color: '#44445a',
-    highlights: ['Software Engineer', 'Associate Consultant', 'Consultant'],
-    bullets: [
-      'Software Engineer — Nov 2013 – Mar 2017, Pune, Maharashtra, India',
-      'Associate Consultant — Apr 2017 – Mar 2018, Pune, Maharashtra, India',
-      'Consultant — Apr 2018 – Oct 2018, Orlando, Florida Area',
-    ],
-  },
-];
+import { experience } from '@/lib/resume';
 
 export default function ExperienceSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
@@ -147,7 +58,7 @@ export default function ExperienceSection() {
             background: 'linear-gradient(to bottom, #00d4ff, #7b5ea7, rgba(255,255,255,0.05))',
           }} />
 
-          {EXPERIENCE.map((exp, i) => (
+          {experience.map((exp, i) => (
             <motion.div
               key={`${exp.company}-${exp.role}`}
               initial={{ opacity: 0, x: -20 }}
@@ -196,16 +107,15 @@ export default function ExperienceSection() {
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px', flexWrap: 'wrap' }}>
                         <span style={{
                           fontFamily: 'DM Mono, monospace',
-                          fontSize: '0.65rem',
+                          fontSize: '0.75rem',
                           letterSpacing: '0.1em',
                           textTransform: 'uppercase',
                           color: exp.color,
-                          opacity: 0.8,
                         }}>
                           {exp.company}
                         </span>
-                        <span style={{ color: 'rgba(136,136,170,0.3)', fontSize: '0.6rem' }}>·</span>
-                        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', color: 'rgba(136,136,170,0.6)' }}>
+                        <span style={{ color: 'rgba(165,178,208,0.5)', fontSize: '0.7rem' }}>·</span>
+                        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'rgba(165,178,208,0.9)' }}>
                           {exp.dates}
                         </span>
                       </div>
@@ -218,15 +128,11 @@ export default function ExperienceSection() {
                         {exp.role}
                       </h3>
                     </div>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                    }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{
                         fontFamily: 'DM Mono, monospace',
-                        fontSize: '0.6rem',
-                        color: 'rgba(136,136,170,0.5)',
+                        fontSize: '0.72rem',
+                        color: 'rgba(165,178,208,0.85)',
                       }}>
                         {exp.duration}
                       </span>
@@ -267,7 +173,7 @@ export default function ExperienceSection() {
                     ))}
                   </div>
 
-                  {/* Expanded content */}
+                  {/* Expanded bullets */}
                   <AnimatePresence>
                     {openIdx === i && (
                       <motion.div

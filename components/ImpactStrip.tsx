@@ -1,30 +1,20 @@
 'use client';
 import { motion } from 'framer-motion';
-
-const TOP3 = [
-  { stat: '17', label: 'Engineers Mentored', sub: 'technical proficiency & career growth' },
-  { stat: '12', label: 'Training Sessions', sub: '80-hour Cloud Native & DevOps programs' },
-  { stat: '10+', label: 'Global Teams Led', sub: 'coordinated PCF migration at Capgemini' },
-];
+import { metrics } from '@/lib/resume';
 
 export default function ImpactStrip() {
+  const top3 = metrics.slice(0, 3);
+
   return (
-    <section
-      style={{
-        padding: '0 24px 80px',
-        position: 'relative',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '16px',
-        }}
-      >
-        {TOP3.map((item, i) => (
+    <section style={{ padding: '0 24px 80px', position: 'relative' }}>
+      <div style={{
+        maxWidth: '1100px',
+        margin: '0 auto',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gap: '16px',
+      }}>
+        {top3.map((item, i) => (
           <motion.div
             key={item.stat}
             initial={{ opacity: 0, y: 30 }}
@@ -42,47 +32,28 @@ export default function ImpactStrip() {
               overflow: 'hidden',
             }}
           >
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '1px',
-                background: 'linear-gradient(90deg, transparent, rgba(240,165,0,0.5), transparent)',
-              }}
-            />
-            <div
-              style={{
-                fontFamily: 'Cormorant Garamond, serif',
-                fontSize: '3.5rem',
-                fontWeight: 700,
-                lineHeight: 1,
-                background: 'linear-gradient(135deg, #f0a500, #ff6b35)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                marginBottom: '8px',
-              }}
-            >
+            <div style={{
+              position: 'absolute',
+              top: 0, left: 0, right: 0,
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, rgba(240,165,0,0.5), transparent)',
+            }} />
+            <div style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: '3.5rem',
+              fontWeight: 700,
+              lineHeight: 1,
+              background: 'linear-gradient(135deg, #f0a500, #ff6b35)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '8px',
+            }}>
               {item.stat}
             </div>
-            <div
-              style={{
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: '#e8e8f0',
-                marginBottom: '4px',
-              }}
-            >
+            <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#e8e8f0', marginBottom: '4px' }}>
               {item.label}
             </div>
-            <div
-              style={{
-                fontSize: '0.78rem',
-                color: 'rgba(136,136,170,0.7)',
-                lineHeight: 1.5,
-              }}
-            >
+            <div style={{ fontSize: '0.78rem', color: 'rgba(136,136,170,0.7)', lineHeight: 1.5 }}>
               {item.sub}
             </div>
           </motion.div>

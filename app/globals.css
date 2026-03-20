@@ -12,11 +12,11 @@
   --accent-gold: #FFB800;
   --accent-violet: #8B5CF6;
   --accent-green: #00FF88;
-  --dark-base: #0D1117;
-  --dark-surface: #161B27;
-  --dark-card: #1C2438;
-  --dark-border: #28364F;
-  --dark-muted: #9BAABE;
+  --dark-base: #050810;
+  --dark-surface: #0A0F1E;
+  --dark-card: #0D1426;
+  --dark-border: #1A2540;
+  --dark-muted: #8892A4;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   background: var(--dark-base);
-  color: #EBF0F8;
+  color: #E2E8F0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -43,15 +43,15 @@ body {
 ::selection { background: rgba(0,212,255,0.3); color: white; }
 
 .glass {
-  background: rgba(22,27,39,0.75);
+  background: rgba(13,20,38,0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(40,54,79,0.9);
+  border: 1px solid rgba(26,37,64,0.8);
 }
 
-.glow-cyan { box-shadow: 0 0 16px rgba(0,212,255,0.2), 0 0 40px rgba(0,212,255,0.07); }
-.glow-gold { box-shadow: 0 0 16px rgba(255,184,0,0.2), 0 0 40px rgba(255,184,0,0.07); }
-.text-glow-cyan { text-shadow: 0 0 14px rgba(0,212,255,0.35); }
+.glow-cyan { box-shadow: 0 0 20px rgba(0,212,255,0.3), 0 0 60px rgba(0,212,255,0.1); }
+.glow-gold { box-shadow: 0 0 20px rgba(255,184,0,0.3), 0 0 60px rgba(255,184,0,0.1); }
+.text-glow-cyan { text-shadow: 0 0 20px rgba(0,212,255,0.5); }
 
 .gradient-text-cyan {
   background: linear-gradient(135deg, #00D4FF 0%, #0088FF 50%, #8B5CF6 100%);

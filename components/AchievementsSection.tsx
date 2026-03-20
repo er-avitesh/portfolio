@@ -1,30 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-
-const METRICS = [
-  { stat: '10+', label: 'Years Experience', color: '#00d4ff' },
-  { stat: '17', label: 'Engineers Mentored', color: '#f0a500' },
-  { stat: '12', label: 'Training Sessions', color: '#7b5ea7' },
-  { stat: '6', label: 'Agile Workshops', color: '#00d4ff' },
-  { stat: '3', label: 'Publications', color: '#f0a500' },
-  { stat: '2', label: 'Migration Accelerators', color: '#7b5ea7' },
-];
-
-const AWARDS = [
-  { title: 'Streak Award', type: 'Award', icon: '🔥' },
-  { title: 'Technical Spot', type: 'Award', icon: '⚡' },
-  { title: 'Adaptive Value', type: 'Award', icon: '♟️' },
-  { title: 'Top 25 Digital Excellence Award', type: 'Award', icon: '🏆' },
-  { title: 'DTAI Team Awards – The Maestro', type: 'Award', icon: '🎯' },
-];
-
-const RECOGNITIONS = [
-  { title: 'Globee® Awards Judge 2025', icon: '⚖️', desc: 'Selected as judge for prestigious Globee Business Awards' },
-  { title: 'IEEE Senior Member', icon: '🔬', desc: 'Senior membership in the Institute of Electrical and Electronics Engineers' },
-  { title: 'Published Researcher', icon: '📄', desc: '3 peer-reviewed publications bridging academic research with industry' },
-  { title: 'MS Computer Science', icon: '🎓', desc: 'Currently pursuing MS CS at UNC Charlotte (2024–2026)' },
-];
+import { achievements, metrics } from '@/lib/resume';
 
 function Counter({ target, color }: { target: string; color: string }) {
   const [val, setVal] = useState('0');
@@ -68,6 +45,9 @@ function Counter({ target, color }: { target: string; color: string }) {
 }
 
 export default function AchievementsSection() {
+  const awards = achievements.filter(a => a.type === 'award');
+  const recognitions = achievements.filter(a => a.type === 'recognition');
+
   return (
     <section id="achievements" style={{ padding: '100px 24px' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -104,7 +84,7 @@ export default function AchievementsSection() {
           gap: '16px',
           marginBottom: '60px',
         }}>
-          {METRICS.map((m, i) => (
+          {metrics.map((m, i) => (
             <motion.div
               key={m.label}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -131,15 +111,15 @@ export default function AchievementsSection() {
           ))}
         </div>
 
-        {/* Two columns: Awards + Recognitions */}
+        {/* Awards + Recognitions */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           {/* Awards */}
           <div>
-            <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(136,136,170,0.5)', marginBottom: '20px' }}>
+            <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(200,210,235,0.9)', marginBottom: '20px' }}>
               Honors & Awards
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {AWARDS.map((a, i) => (
+              {awards.map((a, i) => (
                 <motion.div
                   key={a.title}
                   initial={{ opacity: 0, x: -20 }}
@@ -161,7 +141,9 @@ export default function AchievementsSection() {
                   <span style={{ fontSize: '1.4rem' }}>{a.icon}</span>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#e8e8f0' }}>{a.title}</div>
-                    <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', color: '#f0a500', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '2px' }}>{a.type}</div>
+                    <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', color: '#f0a500', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '2px' }}>
+                      {a.issuer ? `${a.type} · ${a.issuer}` : a.type}
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -170,11 +152,11 @@ export default function AchievementsSection() {
 
           {/* Recognitions */}
           <div>
-            <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(136,136,170,0.5)', marginBottom: '20px' }}>
+            <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(200,210,235,0.9)', marginBottom: '20px' }}>
               Notable Recognitions
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {RECOGNITIONS.map((r, i) => (
+              {recognitions.map((r, i) => (
                 <motion.div
                   key={r.title}
                   initial={{ opacity: 0, x: 20 }}
@@ -196,7 +178,7 @@ export default function AchievementsSection() {
                   <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{r.icon}</span>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#e8e8f0', marginBottom: '4px' }}>{r.title}</div>
-                    <div style={{ fontSize: '0.78rem', color: 'rgba(136,136,170,0.65)', lineHeight: 1.5 }}>{r.desc}</div>
+                    <div style={{ fontSize: '0.78rem', color: 'rgba(180,192,220,0.9)', lineHeight: 1.5 }}>{r.context}</div>
                   </div>
                 </motion.div>
               ))}

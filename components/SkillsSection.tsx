@@ -1,38 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-
-const SKILLS = [
-  {
-    group: 'Cloud & Infrastructure',
-    color: '#00d4ff',
-    items: ['Azure', 'AWS', 'GCP', 'Kubernetes (AKS)', 'Docker', 'Terraform', 'Pivotal Cloud Foundry', 'Azure App Service', 'Azure Cache', 'Azure Key Vault', 'AWS S3', 'AWS Lambda', 'ECS Fargate', 'SQS', 'SNS', 'API Gateway', 'Elastic Beanstalk', 'EC2', 'RDS', 'Serverless'],
-  },
-  {
-    group: 'AI / ML',
-    color: '#f0a500',
-    items: ['RAG', 'LangChain', 'Azure OpenAI', 'Predictive Analytics', 'AI-driven Automation', 'ML Integration'],
-  },
-  {
-    group: 'Languages & Frameworks',
-    color: '#7b5ea7',
-    items: ['Java 17', 'Spring Boot', 'Spring MVC', 'Python', 'Django', 'VueJS', 'Gradle', 'SOAP', 'Reactive Systems'],
-  },
-  {
-    group: 'Architecture Patterns',
-    color: '#00d4ff',
-    items: ['Microservices', 'Domain-Driven Design', 'CQRS', 'Event-Driven Architecture', '15 Factor Methodologies', 'Cloud-Native'],
-  },
-  {
-    group: 'DevOps & Tooling',
-    color: '#7b5ea7',
-    items: ['GitLab', 'GitHub', 'Jenkins', 'uDeploy', 'Urban Code Deploy', 'Harness', 'SonarQube', 'GitHub Copilot', 'Grafana', 'Prometheus', 'Wiz', 'Checkmarx', 'JIRA', 'Confluence'],
-  },
-  {
-    group: 'Methodologies & DB',
-    color: '#f0a500',
-    items: ['SAFe Agile', 'TDD', 'GitOps', 'CI/CD', 'Pair Programming', 'Oracle Database'],
-  },
-];
+import { skills } from '@/lib/resume';
 
 export default function SkillsSection() {
   return (
@@ -45,7 +13,7 @@ export default function SkillsSection() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '60px' }}
         >
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7b5ea7', marginBottom: '12px' }}>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#a07fd4', marginBottom: '12px' }}>
             Technical Arsenal
           </p>
           <h2 style={{
@@ -68,7 +36,7 @@ export default function SkillsSection() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '20px',
         }}>
-          {SKILLS.map((group, gi) => (
+          {skills.map((group, gi) => (
             <motion.div
               key={group.group}
               initial={{ opacity: 0, y: 20 }}
@@ -122,7 +90,7 @@ export default function SkillsSection() {
                       borderRadius: '100px',
                       fontSize: '0.75rem',
                       border: `1px solid ${group.color}20`,
-                      color: 'rgba(232,232,240,0.75)',
+                      color: 'rgba(232,232,240,0.92)',
                       background: `${group.color}05`,
                       cursor: 'default',
                       transition: 'all 0.2s ease',
