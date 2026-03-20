@@ -84,7 +84,7 @@ export default function Footer() {
           color: 'rgba(136,136,170,0.3)',
           textAlign: 'center',
         }}>
-          {basics.location} · Available for opportunities
+          {basics.location} · Available to collaborate
         </p>
       </div>
     </footer>

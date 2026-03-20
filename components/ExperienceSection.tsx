@@ -1,14 +1,47 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { experience } from '@/lib/resume';
 
 export default function ExperienceSection() {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Auto-expand: find whichever card center is closest to viewport center on scroll
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    const pick = () => {
+      const viewMid = window.scrollY + window.innerHeight / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const cardMid = window.scrollY + rect.top + rect.height / 2;
+        const dist = Math.abs(cardMid - viewMid);
+        if (dist < bestDist) { bestDist = dist; bestIdx = i; }
+      });
+      setOpenIdx(bestIdx);
+    };
+
+    const onScroll = () => {
+      clearTimeout(timer);
+      timer = setTimeout(pick, 120);
+    };
+
+    pick(); // run once on mount
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
-    <section id="experience" className="section-pad" style={{ padding: '100px 24px' }}>
+    <section id="experience" style={{ padding: '100px 24px' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +81,6 @@ export default function ExperienceSection() {
 
         {/* Timeline */}
         <div style={{ position: 'relative' }}>
-          {/* Vertical line */}
           <div style={{
             position: 'absolute',
             left: '20px',
@@ -61,6 +93,7 @@ export default function ExperienceSection() {
           {experience.map((exp, i) => (
             <motion.div
               key={`${exp.company}-${exp.role}`}
+              ref={el => { cardRefs.current[i] = el; }}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -76,22 +109,16 @@ export default function ExperienceSection() {
                 height: '13px',
                 borderRadius: '50%',
                 background: exp.color,
-                boxShadow: `0 0 12px ${exp.color}`,
+                boxShadow: openIdx === i ? `0 0 16px ${exp.color}` : `0 0 6px ${exp.color}80`,
                 border: '2px solid #050508',
                 zIndex: 1,
+                transition: 'box-shadow 0.3s ease',
               }} />
 
-              {/* Card */}
+              {/* Card — click still works as manual override */}
               <button
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                style={{
-                  width: '100%',
-                  textAlign: 'left',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: 0,
-                }}
+                style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               >
                 <div style={{
                   padding: '24px 28px',
@@ -119,21 +146,12 @@ export default function ExperienceSection() {
                           {exp.dates}
                         </span>
                       </div>
-                      <h3 style={{
-                        fontSize: '1.05rem',
-                        fontWeight: 600,
-                        color: '#e8e8f0',
-                        letterSpacing: '-0.01em',
-                      }}>
+                      <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#e8e8f0', letterSpacing: '-0.01em' }}>
                         {exp.role}
                       </h3>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{
-                        fontFamily: 'DM Mono, monospace',
-                        fontSize: '0.72rem',
-                        color: 'rgba(165,178,208,0.85)',
-                      }}>
+                      <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'rgba(165,178,208,0.85)' }}>
                         {exp.duration}
                       </span>
                       <div style={{
@@ -183,11 +201,7 @@ export default function ExperienceSection() {
                         transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <div style={{
-                          marginTop: '20px',
-                          paddingTop: '20px',
-                          borderTop: '1px solid rgba(255,255,255,0.05)',
-                        }}>
+                        <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {exp.bullets.map((b, j) => (
                               <motion.li
@@ -195,13 +209,7 @@ export default function ExperienceSection() {
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: j * 0.04 }}
-                                style={{
-                                  display: 'flex',
-                                  gap: '12px',
-                                  fontSize: '0.875rem',
-                                  lineHeight: 1.65,
-                                  color: 'rgba(232,232,240,0.75)',
-                                }}
+                                style={{ display: 'flex', gap: '12px', fontSize: '0.875rem', lineHeight: 1.65, color: 'rgba(232,232,240,0.75)' }}
                               >
                                 <span style={{ color: exp.color, flexShrink: 0, marginTop: '2px', fontSize: '0.7rem' }}>▸</span>
                                 {b}

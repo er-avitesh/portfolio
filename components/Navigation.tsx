@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Domain', href: '#domain' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Skills', href: '#skills' },
   { label: 'Publications', href: '#publications' },
@@ -95,31 +96,61 @@ export default function Navigation() {
           AK
         </button>
 
-        <div style={{ display: 'flex', gap: '8px' }}>
-          {NAV_ITEMS.map(item => (
-            <button
-              key={item.href}
-              onClick={() => scrollTo(item.href)}
-              style={{
-                fontFamily: 'DM Mono, monospace',
-                fontSize: '0.75rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                padding: '6px 14px',
-                borderRadius: '100px',
-                border: active === item.href.slice(1)
-                  ? '1px solid rgba(0,212,255,0.4)'
-                  : '1px solid transparent',
-                color: active === item.href.slice(1) ? '#00d4ff' : 'rgba(200,210,235,0.9)',
-                background: active === item.href.slice(1) ? 'rgba(0,212,255,0.05)' : 'transparent',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              {item.label}
-            </button>
-          ))}
+        <div style={{ display: 'flex', gap: '4px' }}>
+          {NAV_ITEMS.map(item => {
+            const isActive = active === item.href.slice(1);
+            return (
+              <button
+                key={item.href}
+                onClick={() => scrollTo(item.href)}
+                className="nav-item"
+                data-active={isActive}
+                style={{
+                  fontFamily: 'DM Mono, monospace',
+                  fontSize: '0.75rem',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  padding: '6px 14px',
+                  borderRadius: '100px',
+                  border: isActive ? '1px solid rgba(0,212,255,0.4)' : '1px solid transparent',
+                  color: isActive ? '#00d4ff' : 'rgba(200,210,235,0.9)',
+                  background: isActive ? 'rgba(0,212,255,0.05)' : 'transparent',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <span style={{ position: 'relative', zIndex: 1 }}>{item.label}</span>
+              </button>
+            );
+          })}
         </div>
+        <style>{`
+          .nav-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 100px;
+            background: linear-gradient(135deg, rgba(0,212,255,0.18), rgba(123,94,167,0.18));
+            opacity: 0;
+            transform: scaleX(0.5) scaleY(0.8);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+          }
+          .nav-item:hover::before {
+            opacity: 1;
+            transform: scaleX(1) scaleY(1);
+          }
+          .nav-item:hover {
+            color: #00d4ff !important;
+            border-color: rgba(0,212,255,0.5) !important;
+            box-shadow: 0 0 14px rgba(0,212,255,0.25), inset 0 0 10px rgba(0,212,255,0.06) !important;
+            text-shadow: 0 0 10px rgba(0,212,255,0.6);
+          }
+          .nav-item[data-active="true"]::before {
+            opacity: 0;
+          }
+        `}</style>
       </motion.nav>
 
       {/* Mobile nav trigger */}

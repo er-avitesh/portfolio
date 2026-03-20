@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import ImpactStrip from '@/components/ImpactStrip';
 import ExperienceSection from '@/components/ExperienceSection';
+import DomainSection from '@/components/DomainSection';
 import AchievementsSection from '@/components/AchievementsSection';
 import SkillsSection from '@/components/SkillsSection';
 import PublicationsSection from '@/components/PublicationsSection';
@@ -41,6 +42,7 @@ export default function HomePage() {
                 <HeroSection />
                 <ImpactStrip />
                 <ExperienceSection />
+                <DomainSection />
                 <AchievementsSection />
                 <SkillsSection />
                 <PublicationsSection />
