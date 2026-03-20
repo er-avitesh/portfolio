@@ -1,0 +1,208 @@
+{
+  "basics": {
+    "name": "Avitesh Kesharwani",
+    "title": "Technology Leader in Cloud Migration, Modernization & AI",
+    "subtitle": "IEEE Senior Member | Digital Transformation | Globee® Awards Judge 2025 | Senior Principal Consultant | Fintech Expert",
+    "location": "Concord, North Carolina, United States",
+    "email": "itsavitesh@gmail.com",
+    "phone": "+14078207830",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/itsavitesh"
+    },
+    "summary": "Innovative Technical Leader and Cloud Architect with over 10 years of experience transforming enterprise-scale applications through cloud-native architecture and AI-enabled solutions. Currently pursuing MS in Computer Science at UNC Charlotte while driving cutting-edge technology initiatives.",
+    "taglines": [
+      "I architect and deliver scalable, secure cloud solutions that solve complex business challenges.",
+      "My expertise spans the full spectrum of modern technology—from microservices and event-driven architectures to AI/ML integration using RAG, LangChain, and Azure OpenAI.",
+      "Leading the TITAN Cloud & AI Enablement Program at Ryan Specialty Group, revolutionizing specialty insurance through AI-driven underwriting automation, risk scoring systems, and predictive analytics."
+    ]
+  },
+  "experience": [
+    {
+      "company": "Genpact",
+      "role": "Senior Principal Consultant",
+      "dates": "November 2024 – Present",
+      "duration": "1 year 5 months",
+      "location": "Charlotte, North Carolina, United States",
+      "bullets": [
+        "Architected AI-driven underwriting automation featuring RAG-based risk scoring that aggregates municipal and county data (crime rates, flood zones, building codes) to provide predictive insights for underwriting decisions",
+        "Designed and integrated AI solutions using Azure OpenAI and LangChain for submission triage, quote workflow optimization, and predictive analytics—improving decision-making speed and accuracy",
+        "Led migration from IIS servers to Azure VMs and AKS containerization, managing multi-cloud infrastructure across Azure, AWS (Elastic Beanstalk, EC2, RDS, Lambda, S3), and GCP",
+        "Implemented comprehensive monitoring using Grafana and Prometheus with security enforcement through Wiz and Checkmarx scans",
+        "Drove DevOps practices using GitLab, Jenkins, uDeploy, and GitHub Copilot for accelerated development",
+        "Partnered with ML engineers to define technology stack and integration strategy, demonstrating ROI through improved quoting speed, risk accuracy, and operational efficiency",
+        "Govern Agile delivery using SAFe methodology with JIRA and Confluence for predictable quarterly releases"
+      ]
+    },
+    {
+      "company": "Capgemini",
+      "role": "Senior Manager",
+      "dates": "September 2024 – November 2024",
+      "duration": "3 months",
+      "location": "Charlotte, North Carolina, United States",
+      "bullets": [
+        "Directed end-to-end migration of Java and Python applications to Pivotal Cloud Foundry, coordinating with 10+ global teams",
+        "Designed and implemented AWS-based solutions using S3, Lambda, ECS Fargate, SQS, SNS, and API Gateway for secure, scalable applications",
+        "Leveraged Terraform for Azure infrastructure automation and Harness for deployment orchestration",
+        "Initiated pilot migrations to Azure App Service utilizing Azure Cache, Key Vault, and Application Insights",
+        "Developed two migration accelerators that significantly boosted productivity and streamlined processes",
+        "Led 'Let's Grow Together' training campaign, delivering comprehensive PCF and Agile training to drive skill development",
+        "Mentored 17 team members on technical proficiency and career growth",
+        "Collaborated with networking teams to establish robust Public Infrastructure for applications"
+      ]
+    },
+    {
+      "company": "Capgemini",
+      "role": "Software Engineering Manager",
+      "dates": "February 2021 – September 2024",
+      "duration": "3 years 8 months",
+      "location": "Charlotte, NC, United States",
+      "bullets": [
+        "Spearheaded strategic migration from Adobe ColdFusion legacy portal to modern microservices-based self-service application",
+        "Led conceptualization and design of comprehensive migration strategy from Adobe ColdFusion to modern architecture",
+        "Orchestrated domain design workshops to craft scalable microservices architecture",
+        "Developed robust backend services using Python and Django with responsive VueJS frontend",
+        "Implemented middleware service integrating JIRA Service Desk API for automated ticket creation and tracking",
+        "Managed complete CI/CD pipeline onboarding using GitHub, Jenkins, Urban Code Deploy, Sonar, and Pivotal Cloud Foundry",
+        "Delivered modernized, user-friendly self-service application meeting both technical and business objectives"
+      ]
+    },
+    {
+      "company": "Capgemini",
+      "role": "Senior Consultant",
+      "dates": "October 2018 – February 2021",
+      "duration": "2 years 5 months",
+      "location": "Charlotte, North Carolina, United States",
+      "bullets": [
+        "Established Transformation Hub providing centralized platform for cloud-native migration across multiple teams and technology stacks",
+        "Collaborated with multiple application teams through pair programming for cloud-native migration using 15 Factor methodologies",
+        "Championed Test-Driven Development (TDD) practices ensuring application robustness",
+        "Led migration of applications to Spring Boot, Java, and Gradle with complete CI/CD integration",
+        "Conducted 12 intensive 80-hour classroom training sessions on Cloud Native Applications and DevOps",
+        "Facilitated 6 'Roadmap to Enterprise Agile' workshops for Senior Management across four states",
+        "Designed and hosted multiple knowledge-sharing sessions and problem-solving workshops"
+      ]
+    },
+    {
+      "company": "Syntel",
+      "role": "Consultant",
+      "dates": "April 2018 – October 2018",
+      "duration": "7 months",
+      "location": "Orlando, Florida Area",
+      "bullets": []
+    },
+    {
+      "company": "Syntel",
+      "role": "Associate Consultant",
+      "dates": "April 2017 – March 2018",
+      "duration": "1 year",
+      "location": "Pune, Maharashtra, India",
+      "bullets": []
+    },
+    {
+      "company": "Syntel",
+      "role": "Software Engineer",
+      "dates": "November 2013 – March 2017",
+      "duration": "3 years 5 months",
+      "location": "Pune, Maharashtra, India",
+      "bullets": []
+    }
+  ],
+  "achievements": [
+    { "title": "Streak Award", "type": "award", "context": "Recognition for consistent high performance" },
+    { "title": "Technical Spot", "type": "award", "context": "Spot award for technical excellence" },
+    { "title": "Adaptive Value", "type": "award", "context": "Award for delivering adaptive value" },
+    { "title": "Top 25 Digital Excellence Award", "type": "award", "context": "Top 25 recognition in Digital Excellence" },
+    { "title": "DTAI Team Awards – The Maestro", "type": "award", "context": "Team excellence award in Digital & AI" },
+    { "title": "Globee® Awards Judge 2025", "type": "recognition", "context": "Selected as judge for prestigious Globee Awards" },
+    { "title": "IEEE Senior Member", "type": "recognition", "context": "Senior membership in IEEE" },
+    { "title": "12 Training Sessions Conducted", "type": "metric", "context": "12 intensive 80-hour classroom sessions on Cloud Native & DevOps" },
+    { "title": "17 Team Members Mentored", "type": "metric", "context": "Mentored 17 engineers at Capgemini on technical proficiency and career growth" },
+    { "title": "10+ Global Teams Coordinated", "type": "metric", "context": "Directed migration coordinating 10+ global teams at Capgemini" },
+    { "title": "6 Enterprise Agile Workshops", "type": "metric", "context": "Facilitated 6 Roadmap to Enterprise Agile workshops for Senior Management across four states" },
+    { "title": "2 Migration Accelerators Built", "type": "metric", "context": "Developed two migration accelerators at Capgemini significantly boosting productivity" },
+    { "title": "3 Peer-Reviewed Publications", "type": "recognition", "context": "Published research bridging academic research with industry application" }
+  ],
+  "publications": [
+    {
+      "title": "The Economics of Corporate Meetings: Measuring Cost, Value, and Impact in Software Engineering",
+      "subtitle": "A Data-Driven Approach to Optimizing Meetings in the Software Industry Using Cloud, AI, and Productivity Analytics"
+    },
+    {
+      "title": "Enterprise-Scale Cloud Migration Factory Model: A Standardized and Value-Driven Approach for Large-Scale Applications"
+    },
+    {
+      "title": "A Unified Generative AI Solution for Streamlined Employee Onboarding Processes"
+    }
+  ],
+  "skills": [
+    {
+      "group": "Cloud & Infrastructure",
+      "items": ["Azure", "AWS", "GCP", "Kubernetes (AKS)", "Docker", "Terraform", "Pivotal Cloud Foundry", "Azure App Service", "Azure Cache", "Azure Key Vault", "Application Insights", "AWS S3", "AWS Lambda", "AWS ECS Fargate", "AWS SQS", "AWS SNS", "AWS API Gateway", "AWS Elastic Beanstalk", "AWS EC2", "AWS RDS", "Serverless Computing"]
+    },
+    {
+      "group": "AI / ML",
+      "items": ["RAG", "LangChain", "Azure OpenAI", "Predictive Analytics", "AI-driven Automation", "ML Integration"]
+    },
+    {
+      "group": "Languages & Frameworks",
+      "items": ["Java 17", "Spring Boot", "Spring MVC", "Python", "Django", "VueJS", "Gradle", "SOAP", "Reactive Systems"]
+    },
+    {
+      "group": "Architecture",
+      "items": ["Microservices", "Domain-Driven Design", "CQRS", "Event-Driven Architecture", "15 Factor Methodologies", "Cloud-Native"]
+    },
+    {
+      "group": "DevOps & Tooling",
+      "items": ["GitLab", "GitHub", "Jenkins", "uDeploy", "Urban Code Deploy", "Harness", "Sonar", "GitHub Copilot", "Grafana", "Prometheus", "Wiz", "Checkmarx", "JIRA", "Confluence"]
+    },
+    {
+      "group": "Databases",
+      "items": ["Oracle Database"]
+    },
+    {
+      "group": "Methodologies",
+      "items": ["SAFe Agile", "TDD", "GitOps", "CI/CD", "Pair Programming"]
+    },
+    {
+      "group": "Languages",
+      "items": ["English", "Hindi"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of North Carolina at Charlotte",
+      "degree": "Master of Science – MS, Computer Science",
+      "dates": "July 2024 – March 2026"
+    },
+    {
+      "institution": "Lakshmi Narain College Of Technology",
+      "degree": "Bachelor of Engineering (B.E.), Information Technology",
+      "dates": "2009 – 2013"
+    },
+    {
+      "institution": "JPV DAV Public School Katni",
+      "degree": "High School, Maths and Science",
+      "dates": "2007 – 2009"
+    }
+  ],
+  "certifications": [
+    "Introduction to Responsible AI",
+    "Blockchain Essentials BC0101EN",
+    "SI Associate Quiz"
+  ],
+  "awards": [
+    "Streak Award",
+    "Technical Spot",
+    "Adaptive Value",
+    "Top 25 Digital Excellence Award",
+    "DTAI Team Awards – The Maestro"
+  ],
+  "extra": [
+    "10+ years of experience transforming enterprise-scale applications",
+    "Currently pursuing MS in Computer Science at UNC Charlotte",
+    "Leading the TITAN Cloud & AI Enablement Program at Ryan Specialty Group",
+    "Team manages five critical applications, migrating infrastructure to AKS",
+    "Implementing real-time monitoring and security frameworks at Ryan Specialty Group",
+    "Author of three peer-reviewed publications on cloud migration strategies, AI-driven employee onboarding, and meeting optimization using data analytics"
+  ]
+}
